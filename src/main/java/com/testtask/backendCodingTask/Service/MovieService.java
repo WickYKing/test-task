@@ -16,5 +16,5 @@ public interface MovieService {
     //    public List<MoviesDto> convertToMovieDtoList(List<Movies> movies) {
 //        return null;
 //    }
-     List<MoviesDto> convertToMovieDtoList(List<Movies> movies, List<Ratings> ratings);
+    // List<MoviesDto> convertToMovieDtoList(List<Movies> movies, List<Ratings> ratings);
 }

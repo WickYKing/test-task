@@ -27,22 +27,22 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<MoviesDto> getTopTenLongestDurationMovies() {
-        List<Movies> movie =this.moviesRepo.findTop10ByOrderByRuntimeMinutesDesc();
+        List<Movies> movies = moviesRepo.findTop10ByOrderByRuntimeMinutesDesc();
         List<MoviesDto> movieDtos = new ArrayList<>();
-        for (MoviesDto movies : movieDtos) {
-            Object averageRating = null;
-            MoviesDto movieDto = new MoviesDto(movies.getId(), movies.getPrimaryTitle(), movies.getGenres(), averageRating);
-            movieDto.setId(movies.getId());
-            movieDto.setTitleType(movies.getTitleType());
-            movieDto.setPrimaryTitle(movies.getPrimaryTitle());
-            movieDto.setRuntimeMinutes(movies.getRuntimeMinutes());
-            movieDto.setGenres(movies.getGenres());
+
+        for (Movies movie : movies) {
+            MoviesDto movieDto = new MoviesDto();
+            movieDto.setId(movie.getId());
+            movieDto.setTitleType(movie.getTitleType());
+            movieDto.setPrimaryTitle(movie.getPrimaryTitle());
+            movieDto.setRuntimeMinutes(movie.getRuntimeMinutes());
+            movieDto.setGenres(movie.getGenres());
             movieDtos.add(movieDto);
         }
 
-      List<MoviesDto> MoviesDtoList = movieDtos.stream().map(moviesDto -> this.modelMapper.map(moviesDto, MoviesDto.class)).collect(Collectors.toList());
         return movieDtos;
     }
+
 
     @Override
     public List<MoviesDto> getTopRatedMovies() {
