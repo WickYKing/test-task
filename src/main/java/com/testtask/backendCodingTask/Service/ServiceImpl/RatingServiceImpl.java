@@ -1,4 +1,8 @@
 package com.testtask.backendCodingTask.Service.ServiceImpl;
 
-public class RatingServiceImpl {
+import com.testtask.backendCodingTask.Service.RatingService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RatingServiceImpl implements RatingService {
 }

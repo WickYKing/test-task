@@ -18,7 +18,7 @@ public class Ratings {
     @Column(nullable = false)
     private Float averageRating;
     @Column(nullable = false)
-    private String numVotes;
+    private Integer numVotes;
 
 //    @OneToOne
 //    @JoinColumn(name = "tconst_id")

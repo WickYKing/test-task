@@ -1,5 +1,6 @@
 package com.testtask.backendCodingTask.Controller;
 
+import com.testtask.backendCodingTask.PayLoads.GenreMoviesSubtotalsDto;
 import com.testtask.backendCodingTask.PayLoads.MoviesDto;
 import com.testtask.backendCodingTask.PayLoads.NewMovieDto;
 import com.testtask.backendCodingTask.Service.MovieService;
@@ -9,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,9 +33,19 @@ public class MoviesController {
         }
 
     @GetMapping("/v1/top-rated-movies")
-    public ResponseEntity<List<MoviesDto>> topratedmovies(@RequestBody MoviesDto moviesDto) {
-         List<MoviesDto> topratedmovies=this.movieService.getTopRatedMovies();
-        return ResponseEntity.ok((List<MoviesDto>) topratedmovies);
+    public ResponseEntity<List<MoviesDto>> topratedmovies() {
+         List<MoviesDto> topratedmovies =this.movieService.getTopRatedMovies();
+        return ResponseEntity.ok( topratedmovies);
+    }
+
+    @GetMapping("/v1/genre-movies-with-subtotals")
+    public ResponseEntity<List<GenreMoviesSubtotalsDto>> getGenreMoviesWithSubtotals() {
+        return ResponseEntity.ok(this.movieService.getGenreMoviesWithSubtotals());
+    }
+    @PostMapping("/v1/update-runtime-minutes")
+    public ResponseEntity<String> updateRuntimeMinutes() {
+        movieService.updateRuntimeMinutes();
+        return ResponseEntity.ok("Runtime minutes updated successfully.");
     }
 
 }

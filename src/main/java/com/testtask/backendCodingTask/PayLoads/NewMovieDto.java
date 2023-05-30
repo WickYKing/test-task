@@ -24,5 +24,5 @@ public class NewMovieDto {
     @NotNull(message = "Please enter the valid rating")
     private Float averageRating;
     @NotEmpty
-    private String numVotes;
+    private Integer numVotes;
 }

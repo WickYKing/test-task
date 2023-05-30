@@ -30,13 +30,13 @@ public class NewMoviesServicesImpl implements NewMoviesServies {
         movies.setPrimaryTitle(newMovieDto.getPrimaryTitle());
         movies.setRuntimeMinutes(newMovieDto.getRuntimeMinutes());
         movies.setGenres(newMovieDto.getGenres());
-        System.out.println("Movies" + movies);
+      //  System.out.println("Movies" + movies);
         moviesRepo.save(movies);
         Ratings ratings = new Ratings();
         ratings.setId(newMovieDto.getId());
         ratings.setAverageRating(newMovieDto.getAverageRating());
         ratings.setNumVotes(newMovieDto.getNumVotes());
-        System.out.println("Rating" + ratings);
+      //  System.out.println("Rating" + ratings);
         ratingRepo.save(ratings);
         return newMovieDto;
 
